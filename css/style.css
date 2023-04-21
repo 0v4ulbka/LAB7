@@ -1,0 +1,71 @@
+body{
+    margin: 0 100px;
+    font-family: "Ubuntu Mono";
+    background-color: #e0ddd1;
+}
+a{
+    display: inline-block;
+    color: #c9b327;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13pt;
+    background-color: rgba(82, 77, 51, 0.84);
+    border: #444234 3px solid;
+    padding: 12px 25px;
+    margin: 10px 50px;
+}
+div{
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    width: 900px;
+    display: inline-block;
+}
+.block{
+    background-color: rgba(82, 77, 51, 0.3);
+    padding: 40px 10px;
+}
+p{
+    color: #2f2900;
+    font-size: 14pt;
+    margin: 7px 0;
+}
+nav{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    background-color: rgba(131, 122, 62, 0.6);
+    padding: 0 20px;
+    border: #444234 3px solid;
+    border-top: none;
+}
+form{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+input{
+    font-family: "Ubuntu Mono";
+    font-size: 12pt;
+    color: #444234;
+    border: none;
+    border-bottom: #2f2900 2px solid;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    padding: 12px 15px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+.button{
+    width: 200px;
+    border: #444234 3px solid;
+    color: #c9b327;
+    font-weight: bold;
+    font-size: 13pt;
+    background-color: rgba(82, 77, 51, 0.84);
+    padding: 12px 25px;
+    margin: 10px 30px;
+    cursor: pointer;
+}
