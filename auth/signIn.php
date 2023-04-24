@@ -16,8 +16,10 @@ if (!empty($_POST['submit'])){
     $query = "SELECT * FROM users where login = '$login' and password = '$password'";
     $res = query($query, $mysqli);
     if (mysqli_affected_rows($mysqli) == 1) {
-        $_SESSION['login'] = $login;
-        header('Location: ../classicsView.php');
+        foreach ($res as $re){
+            $_SESSION['job_title'] = $re['job_title'];
+        }
+        header('Location: ../main.php');
     }
 }
 ?>
@@ -27,7 +29,7 @@ if (!empty($_POST['submit'])){
     <label><p>Пароль</p><input type="password" name="password"></label>
     <div>
         <input class="button" type="submit" name="submit" value="Войти">
-        <a href="../classicsView.php">Назад</a>
+        <a href="../main.php">Назад</a>
     </div>
 </form>
 </body>

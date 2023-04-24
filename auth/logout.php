@@ -1,4 +1,4 @@
 <?php
 session_start();
 session_destroy();
-header('Location: ../classicsView.php');
+header('Location: ../main.php');

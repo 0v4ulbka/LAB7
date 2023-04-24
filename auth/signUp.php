@@ -12,24 +12,33 @@ require_once '../config/dbConnect.php';
 require_once '../functions.php';
 if (!empty($_POST['submit'])) {
     $name = strip_tags($_POST['name']);
+    $surname = strip_tags($_POST['surname']);
+    $job_title = strip_tags($_POST['job_title']);
     $login = strip_tags($_POST['login']);
     $password = strip_tags($_POST['password']);
-    $query = "INSERT INTO users (name, login, password) VALUES ('$name', '$login', '$password')";
+    $query = "INSERT INTO users (name, surname, job_title, login, 
+                   password) VALUES ('$name', '$surname', '$job_title', 
+                                     '$login', '$password')";
     $res = query($query, $mysqli);
     if (mysqli_affected_rows($mysqli) == 1) {
-        $_SESSION['login'] = $login;
-        header('Location: ../classicsView.php');
+        $_SESSION['login'] = $job_title;
+        header('Location: ../main.php');
     }
 }
 ?>
 <h1>Регистрация</h1>
 <form method="post">
     <label><p>Имя</p><input type="text" name="name"></label>
+    <label><p>Фамилия</p><input type="text" name="surname"></label>
+    <label><p>Должность</p>
+        <input type="radio" name="job_title" value="admin">Администратор
+        <input type="radio" name="job_title" value="worker">Кадровый работник
+    </label>
     <label><p>Логин</p><input type="text" name="login"></label>
     <label><p>Пароль</p><input type="password" name="password"></label>
     <div>
         <input class="button" type="submit" name="submit" value="Регистрация">
-        <a href="../classicsView.php">Назад</a>
+        <a href="../main.php">Назад</a>
     </div>
 </form>
 </body>
