@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Добавить</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once 'config/dbConnect.php';
-require_once 'functions.php';
+require_once '../../config/dbConnect.php';
+require_once '../../functions.php';
 if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
-    $name = strip_tags($_POST['name']);
+    $first_name = strip_tags($_POST['name']);
     $surname = strip_tags($_POST['surname']);
     $patronymic = strip_tags($_POST['patronymic']);
     $sex = strip_tags($_POST['sex']);
@@ -20,13 +20,13 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     $kids = strip_tags($_POST['kids']);
     $id_job_title = strip_tags($_POST['id_job_title']);
     $id_academic_degrees = strip_tags($_POST['id_academic_degrees']);
-    $query = "INSERT INTO employees (name, surname, patronymic, sex, age, 
+    $query = "INSERT INTO employees (first_name, surname, patronymic, sex, age, 
                        id_family_status, kids, id_academic_degree, 
-                       id_job_title) VALUES ('$name', '$surname', '$patronymic', '$sex', 
+                       id_job_title) VALUES ('$first_name', '$surname', '$patronymic', '$sex', 
                                              $age, $id_family_status, $kids, $id_academic_degrees, $id_job_title)";
     $res = query($query, $mysqli);
     if (mysqli_affected_rows($mysqli) == 1) {
-        header('Location: main.php');
+        header('Location: ../main.php');
     }
 }
 ?>
@@ -35,7 +35,10 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     <label><p>Имя</p><input type="text" name="name"></label>
     <label><p>Фамилия</p><input type="text" name="surname"></label>
     <label><p>Отчество</p><input type="text" name="patronymic"></label>
-    <label><p>Пол</p><input type="text" name="sex"></label>
+    <label><p>Пол</p>
+        <input type="radio" name="sex" value="Мужской">Мужской
+        <input type="radio" name="sex" value="Женский">Женский
+    </label>
     <label><p>Возраст</p><input type="text" name="age"></label>
     <label><p>Семейный статус</p>
         <select name="id_family_status">
@@ -67,7 +70,7 @@ if (!empty($_POST['submit']) && $_POST['submit'] == 'Добавить') {
     </label>
     <div>
         <input class="button" type="submit" name="submit" value="Добавить">
-        <a href="main.php">Назад</a>
+        <a href="../main.php">Назад</a>
     </div>
 </form>
 </body>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Изменить</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once 'config/dbConnect.php';
-require_once 'functions.php';
+require_once '../../config/dbConnect.php';
+require_once '../../functions.php';
 $id = (int)$_GET['id_employees'];
 if (!empty($_POST['submit'])) {
     $name = strip_tags($_POST['name']);
@@ -32,7 +32,7 @@ if (!empty($_POST['submit'])) {
                     `id_job_title` = '$id_job_title' WHERE id_employees = $id";
     $res = query($query, $mysqli);
     if (mysqli_affected_rows($mysqli) == 1) {
-        header('Location: main.php');
+        header('Location: ../main.php');
     }
 }
 $query = "SELECT * FROM employees where id_employees = $id";
@@ -40,10 +40,13 @@ $res = query($query, $mysqli);
 foreach ($res as $re){ ?>
         <h1>Изменение</h1>
     <form method="post">
-        <label><p>Имя</p><input type="text" name="name" value="<?= $re['name']?>"></label>
+        <label><p>Имя</p><input type="text" name="name" value="<?= $re['first_name']?>"></label>
         <label><p>Фамилия</p><input type="text" name="surname" value="<?= $re['surname']?>"></label>
         <label><p>Отчество</p><input type="text" name="patronymic" value="<?= $re['patronymic']?>"></label>
-        <label><p>Пол</p><input type="text" name="sex" value="<?= $re['sex']?>"></label>
+        <label><p>Пол</p>
+            <input type="radio" name="sex" value="Мужской">Мужской
+            <input type="radio" name="sex" value="Женский">Женский
+        </label>
         <label><p>Возраст</p><input type="text" name="age" value="<?= $re['age']?>"></label>
         <label><p>Семейный статус</p>
             <select name="id_family_status">
@@ -75,7 +78,7 @@ foreach ($res as $re){ ?>
         </label>
         <div>
             <input class="button" type="submit" name="submit" value="Изменить">
-            <a href="main.php">Назад</a>
+            <a href="../main.php">Назад</a>
         </div>
     </form>
 <?php }?>

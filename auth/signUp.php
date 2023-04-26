@@ -21,8 +21,7 @@ if (!empty($_POST['submit'])) {
                                      '$login', '$password')";
     $res = query($query, $mysqli);
     if (mysqli_affected_rows($mysqli) == 1) {
-        $_SESSION['login'] = $job_title;
-        header('Location: ../main.php');
+        header('Location: ../site/users/users.php');
     }
 }
 ?>
@@ -38,7 +37,7 @@ if (!empty($_POST['submit'])) {
     <label><p>Пароль</p><input type="password" name="password"></label>
     <div>
         <input class="button" type="submit" name="submit" value="Регистрация">
-        <a href="../main.php">Назад</a>
+        <a href="../site/users/users.php">Назад</a>
     </div>
 </form>
 </body>

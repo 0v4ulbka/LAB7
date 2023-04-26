@@ -19,7 +19,7 @@ if (!empty($_POST['submit'])){
         foreach ($res as $re){
             $_SESSION['job_title'] = $re['job_title'];
         }
-        header('Location: ../main.php');
+        header('Location: ../site/main.php');
     }
 }
 ?>
@@ -29,7 +29,7 @@ if (!empty($_POST['submit'])){
     <label><p>Пароль</p><input type="password" name="password"></label>
     <div>
         <input class="button" type="submit" name="submit" value="Войти">
-        <a href="../main.php">Назад</a>
+        <a href="../site/main.php">Назад</a>
     </div>
 </form>
 </body>
