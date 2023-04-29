@@ -19,6 +19,7 @@ if($_SESSION && !empty($_SESSION)){ ?>
     <a href="../auth/signIn.php">Войти</a>
 <?php }?>
 </nav>
+<?php if($_SESSION && !empty($_SESSION)){ ?>
 <form method="post">
     <label>
         <h2>Поиск по фамилии</h2>
@@ -28,6 +29,7 @@ if($_SESSION && !empty($_SESSION)){ ?>
     </label>
 </form>
 <?php
+}
 require_once '../config/dbConnect.php';
 require_once '../functions.php';
 if (!empty($_POST)){

@@ -20,11 +20,20 @@ if (!empty($_POST['submit'])){
             $_SESSION['job_title'] = $re['job_title'];
         }
         header('Location: ../site/main.php');
+    }else{
+        $errors[] = 'Такого пользователя не существует';
     }
 }
 ?>
 <h1>Вход</h1>
 <form method="post">
+    <?php if(!empty($errors)){ ?>
+        <div class="valid">
+            <?php foreach ($errors as $error){ ?>
+                <h3 class="error"><?= $error?></h3>
+            <?php }?>
+        </div>
+    <?php } ?>
     <label><p>Логин</p><input type="text" name="login"></label>
     <label><p>Пароль</p><input type="password" name="password"></label>
     <div>

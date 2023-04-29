@@ -27,7 +27,7 @@ div{
 p{
     color: #2f2900;
     font-size: 14pt;
-    margin: 7px 0;
+    margin: 10px 0;
 }
 nav{
     display: flex;
@@ -57,6 +57,10 @@ input, select{
     width: 300px;
     margin-bottom: 30px;
 }
+.radio{
+    width: 50px;
+    margin-top: 20px ;
+}
 .button{
     width: 200px;
     border: #444234 3px solid;
@@ -69,6 +73,17 @@ input, select{
     cursor: pointer;
 }
 .magnifier{
+    cursor: pointer;
     width: 50px;
     height: 45px;
+}
+h1{
+    margin-top: 60px;
+}
+.error{
+    color: darkred;
+}
+.valid{
+    background-color: rgba(139, 0, 0, 0.2);
+    border: rgba(139, 0, 0, 0.5) solid 3px;
 }
